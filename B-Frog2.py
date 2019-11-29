@@ -1,6 +1,6 @@
 def main():
     
-    n=int(input())
+    n,k=map(int,input().split())
     h=list(map(int,input().split()))
 
     dp=[9999999999]*n
@@ -8,7 +8,11 @@ def main():
     dp[1]=abs(h[1]-h[0])
 
     for i in range(2,n):
-        dp[i]=min(dp[i-1]+abs(h[i]-h[i-1]),dp[i-2]+abs(h[i]-h[i-2]))
+        for j in range(1,k+1):
+            if i-j>=0:
+                dp[i]=min(dp[i],dp[i-j]+abs(h[i]-h[i-j]))
+            else:
+                break
 
     print(dp[n-1])
 

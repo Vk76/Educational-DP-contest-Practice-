@@ -1,3 +1,6 @@
+#This might give TLE 
+#Use same logic in C++14 to avoid TLE
+
 def main():
     
     n,k=map(int,input().split())
@@ -15,7 +18,6 @@ def main():
                 break
 
     print(dp[n-1])
-
 
 if __name__ == "__main__":
     main()
